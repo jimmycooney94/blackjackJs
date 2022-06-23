@@ -1,3 +1,4 @@
+// Generates a random card from a full deck
 const randCard = function () {
     let cardNum = Math.floor(Math.random() * 13 + 1);
     let suitNum = Math.floor(Math.random() * 4 + 1);
@@ -7,6 +8,7 @@ const randCard = function () {
     return { "cardNum": cardNum, "suitVal": suitNum, "imgName": imgName };
 }
 
+// Works out hand value for a given set of cards
 const calcHand = function (cardNums) {
     // Add non-ace cards first, then loop through aces and add 1 or 11 depending on current sum
     const notAces = cardNums.filter(val => val !== 1);
