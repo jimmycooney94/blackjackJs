@@ -1,0 +1,35 @@
+html, body {
+    height: 100%;
+}
+body {
+    font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
+    display: table-cell;
+    vertical-align: middle;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+.score {
+    text-align: center;
+}
+
+button {
+    width: 200px;
+    height: 100px;
+    background-color:rgb(48, 95, 136);
+    font-size: 2em;
+    color: white;
+    border-radius:10px;
+    border: 2px solid black;
+}
+
+button:hover {
+    background-color:rgb(24, 48, 70);
+}
+
+.cards {
+    height: 200px;
+}
