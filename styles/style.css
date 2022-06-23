@@ -5,6 +5,8 @@ body {
     font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
     display: table-cell;
     vertical-align: middle;
+    background: rgb(235, 216, 224);
+    background: radial-gradient(circle, rgb(219, 194, 205) 0%, rgb(187, 201, 218) 100%);
 }
 
 html {
@@ -20,6 +22,7 @@ button {
     width: 200px;
     height: 100px;
     background-color:rgb(48, 95, 136);
+    transition: background-color 0.2s;
     font-size: 2em;
     color: white;
     border-radius:10px;
@@ -28,8 +31,26 @@ button {
 
 button:hover {
     background-color:rgb(24, 48, 70);
+    transition: background-color 0.2s;
 }
+
+button:
 
 .cards {
     height: 200px;
+    display: flex;
+    justify-content: center;
+    margin:5px;
+}
+
+.card {
+    height:175px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    transition: height 0.5s;
+    margin: 2px;
+}
+
+.card:hover {
+    height:200px;
+    transition: height 0.2s;
 }
