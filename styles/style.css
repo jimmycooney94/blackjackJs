@@ -1,13 +1,13 @@
 html, body {
     height: 100%;
     width:100%;
-
+    font-family: 'Lato', sans-serif;
     background-color: #4158D0;
     background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
 }
 
 body {
-    font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
+
     display: table-cell;
     vertical-align: middle;
 }    
@@ -17,12 +17,22 @@ html {
     margin: auto;
 }
 
+.intro {
+    display: flex;
+    justify-content: center;
+    font-size:4em;
+}
+
 .score {
+    font-size: 1.5em;
     text-align: center;
+    margin: 20px;
 }
 
 button {
+    margin:5px;
     width: 200px;
+    font-family: 'Lato', sans-serif;
     height: 100px;
     background-color:rgb(48, 95, 136);
     font-size: 2em;
@@ -45,14 +55,16 @@ button:disabled {
     height: 200px;
     display: flex;
     justify-content: center;
-    margin:5px;
 }
 
 .card {
     height:175px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     transition: height 0.5s;
-    margin: 2px;
+}
+
+img {
+    padding: 5px;
 }
 
 .card:hover {
@@ -63,4 +75,13 @@ button:disabled {
 .gameplay-buttons, #outcome {
     display:flex;
     justify-content: center;
+}
+
+#outcome {
+    font-size: 25px;
+    height: 100px;
+}
+
+#hit, #stick {
+    display: none;
 }

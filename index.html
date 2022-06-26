@@ -7,22 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play blackjackJs</title>
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <div class="cards" id="dealer-cards"></div>
-    <h2 class="score">Dealer: <span class="hand" id="dealer-score"></span></h2>
-
-    <h2 class="score">You: <span class="hand" id="your-score"></span></h2>
-    <div class="cards" id="your-cards"></div>
+    <div class="cards" id="dealer-hand"></div>
+    <h2 class="score" id="dealer-score-full">Dealer's score: <span class="hand" id="dealer-score"></span></h2>
+    <div class="intro">Let's play vanilla.js blackjack!</div>
+    <h2 class="score" id="player-score-full">Your score: <span class="hand" id="player-score"></span></h2>
+    <div class="cards" id="player-hand"></div>
 
     <div class="gameplay-buttons">
         <button id="hit">Hit</button>
         <button id="stick">Stick</button>
         <button id="play">Play</button>
     </div>
-    <script src="./scripts/gameplay.js"></script>
+    <p id="outcome"></p>
+    <script src="./scripts/calcFunctions.js"></script>
+    <script src="./scripts/deckFunctions.js"></script>
+    <script src="./scripts/gameFunctions.js"></script>
     <script src="./scripts/app.js"></script>
 </body>
 
