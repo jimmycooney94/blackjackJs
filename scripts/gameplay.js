@@ -1,9 +1,17 @@
 const init = function () {
-    // init deck
+    hitBtn.style.display = "none";
+    stickBtn.style.display = "none";
+
+}
+
+const play = function () {
+    hitBtn.style.display = "block";
+    stickBtn.style.display = "block";
+    playBtn.innerHTML = "Reset";
+    // Init deck and cards
     deck = shuffle(newDeck());
+
     // deal 2 cards to player
-    hit("player");
-    hit("player");
 }
 
 const newDeck = function () {
@@ -50,6 +58,18 @@ const calcHand = function (cards) {
     const aces = cardNums.filter(val => val === 1);
     for (let ace of aces) { if (sum <= 10) { sum = sum + 11; } else { sum = sum + 1; } }
     return sum;
+}
+
+const calcPosition = function (score, numCards) {
+    if (score == 21 && numCards == 2) {
+        position = "win";
+    }
+    else if (score > 21) {
+        position = "lose";
+    }
+    else {
+        position = "continue";
+    }
 }
 
 // *** GAMEPLAY FUNCTIONS ***
