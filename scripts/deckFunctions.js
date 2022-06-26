@@ -27,3 +27,4 @@ const shuffle = function (inputArray) {
     }
     return shuffledDeck;
 }
+

@@ -17,17 +17,40 @@ const calcHand = function (cards) {
 
 const endGame = function () {
     if (playerScore > 21) {
-        $outcome.innerHTML = "You lost! :(";
-    }
-    else if (dealerScore > 21 || dealerScore < playerScore) {
-        $outcome.innerHTML = "You win!";
-    }
-    else if (dealerScore === playerScore) {
-        $outcome.innerHTML = "You drew!";
+        processResult("lose");
     }
     else {
-        $outcome.innerHTML = "You lost! :(";
+        while (dealerScore < 17) {
+            hit("dealer");
+        }
+        if (dealerScore > 21 || dealerScore < playerScore) {
+            processResult("win");
+        }
+        else if (dealerScore === playerScore) {
+            processResult("draw");
+        }
+        else { // Implicit lose
+            processResult("lose");
+        }
     }
     $hit.disabled = true;
     $stick.disabled = true;
+}
+
+const processResult = function (result) {
+    if (result === "win") {
+        $outcome.innerHTML = "You win!";
+        countWins++;
+        $countWins.innerHTML = countWins;
+    }
+    else if (result === "draw") {
+        $outcome.innerHTML = "You drew!";
+        countDraws++;
+        $countDraws.innerHTML = countDraws;
+    }
+    else if (result === "lose") {
+        $outcome.innerHTML = "You lost! :(";
+        countLosses++;
+        $countLosses.innerHTML = countLosses;
+    }
 }

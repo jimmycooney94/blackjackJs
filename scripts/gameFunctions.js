@@ -1,6 +1,7 @@
 const startGame = function () {
     // Init DOM
     $intro.remove();
+    $stats.style.display = "flex";
     $hit.style.display = "block";
     $stick.style.display = "block";
     $hit.disabled = false;
@@ -24,7 +25,6 @@ const startGame = function () {
     // End game immediately if player has blackjack
     if (playerScore === 21) {
         hit("dealer");
-        endGame();
     }
 }
 
@@ -45,7 +45,7 @@ const hit = function (hitter) {
         }
         // Hand over to dealer if 5 cards
         else if (playerScore === 21 || playerHand.length === 5) {
-            stick();
+            endGame();
         }
     }
     else if (hitter === "dealer") {
@@ -54,11 +54,4 @@ const hit = function (hitter) {
         dealerScore = calcHand(dealerHand);
         $dealerScore.innerHTML = dealerScore;
     }
-}
-
-const stick = function () {
-    while (dealerScore < 17) {
-        hit("dealer");
-    }
-    endGame();
 }

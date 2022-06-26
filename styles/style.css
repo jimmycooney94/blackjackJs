@@ -85,3 +85,10 @@ img {
 #hit, #stick {
     display: none;
 }
+
+#stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap:wrap;
+    display: none;
+}
