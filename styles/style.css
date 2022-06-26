@@ -22,19 +22,21 @@ button {
     width: 200px;
     height: 100px;
     background-color:rgb(48, 95, 136);
-    transition: background-color 0.2s;
     font-size: 2em;
     color: white;
     border-radius:10px;
     border: 2px solid black;
+    transition: background-color 0.2s;
 }
 
-button:hover {
+button:hover:enabled {
     background-color:rgb(24, 48, 70);
     transition: background-color 0.2s;
 }
 
-button:
+button:disabled {
+   opacity: 0.1;
+}
 
 .cards {
     height: 200px;

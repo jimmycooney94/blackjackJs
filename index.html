@@ -12,18 +12,18 @@
 <body>
 
     <div class="cards" id="dealer-cards"></div>
-    <h2 class="score">Dealer: <span class="hand" id="dealer-sum"></span></h2>
+    <h2 class="score">Dealer: <span class="hand" id="dealer-score"></span></h2>
 
-    <h2 class="score">You: <span class="hand" id="your-sum"></span></h2>
+    <h2 class="score">You: <span class="hand" id="your-score"></span></h2>
     <div class="cards" id="your-cards"></div>
 
-    <br>
-
-    <button id="hit">Hit</button>
-    <button id="stick">Stick</button>
-    <p id="outcome"></p>
-    <script src="./scripts/app.js"></script>
+    <div>
+        <button id="hit">Hit</button>
+        <button id="stick">Stick</button>
+    </div>
+    <p id="outcome">Game ongoing...</p>
     <script src="./scripts/gameplayFunctions.js"></script>
+    <script src="./scripts/app.js"></script>
 </body>
 
 </html>

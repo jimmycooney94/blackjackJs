@@ -1,5 +1,19 @@
+// Init querySelector
+const hitBtn = document.querySelector("#hit");
+const stickBtn = document.querySelector("#stick");
+const yourCards = document.querySelector("#your-cards");
+const dealerCards = document.querySelector("#dealer-cards");
+const yourScore = document.querySelector("#your-score");
+const dealerScore = document.querySelector("#dealer-score");
+const outcome = document.querySelector("#outcome");
+
+// add eventListeners
+hitBtn.addEventListener('click', _ => hit("player"));
+stickBtn.addEventListener('click', stick);
+
 // Init variables
-const hit = document.querySelector("#hit");
-const stick = document.querySelector("#stick");
-let yourScore = 0;
-let dealerScore = 0;
+let deck = [];
+let yourHand = [];
+let dealerHand = [];
+// onLoad
+window.onload = init();
