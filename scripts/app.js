@@ -39,5 +39,5 @@ let countWins = 0;
 let countDraws = 0;
 let countLosses = 0;
 
-// Cache cards
-let preloadImages = document.createElement('img');
+// Preload Images
+preloadCards(newDeck());

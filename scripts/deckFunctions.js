@@ -28,3 +28,12 @@ const shuffle = function (inputArray) {
     return shuffledDeck;
 }
 
+const preloadCards = function (cards) {
+    let images = [];
+    let i = 0;
+    for (let card of cards) {
+        images[i] = new Image();
+        images[i].src = "/images/cards/" + card.imgName;
+        i++;
+    }
+}
