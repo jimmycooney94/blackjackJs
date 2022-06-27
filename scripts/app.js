@@ -40,5 +40,5 @@ let countDraws = 0;
 let countLosses = 0;
 
 // Preload Deck Images
-deckToPreload = newDeck();
-preloadCards(deckToPreload);
+let cardArr = newDeck();
+preloadCards(cardArr);
