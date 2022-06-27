@@ -39,5 +39,6 @@ let countWins = 0;
 let countDraws = 0;
 let countLosses = 0;
 
-// Preload Images
-preloadCards(newDeck());
+// Preload Deck Images
+deckToPreload = newDeck();
+preloadCards(deckToPreload);
