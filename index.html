@@ -14,6 +14,15 @@
 
 <body>
 
+    <div id="bet-modal" class="modal">
+        <div class="modal-content">
+            <p id="bet-msg" class="modal-message">How much do you want to bet?</p>
+            <input type="number" name="Bet Amount" id="input-bet-amount">
+            <br>
+            <button class="modal-button" id="place-bet">Place bet!</button>
+        </div>
+    </div>
+
     <div class="cards" id="dealer-hand"></div>
     <h2 class="score" id="dealer-score-full">Dealer's score: <span class="hand" id="dealer-score"></span></h2>
     <div class="intro">Let's play vanilla.js blackjack!</div>
@@ -21,9 +30,9 @@
     <div class="cards" id="player-hand"></div>
 
     <div class="gameplay-buttons">
-        <button id="hit">Hit</button>
-        <button id="stick">Stick</button>
-        <button id="play">Play</button>
+        <button class="gameplay-button" id="hit">Hit</button>
+        <button class="gameplay-button" id="stick">Stick</button>
+        <button class="gameplay-button" id="play">Play</button>
     </div>
     <div id="stats">
         <p>Wins: <span id="count-wins">0</span> | Draws: <span id="count-draws">0</span> | Losses: <span
@@ -33,6 +42,7 @@
         <p>Your chips: <span id="player-chips"></span> | Current pot: <span id="pot">0</span></p>
     </div>
     <p id="outcome"></p>
+
     <script src="./scripts/calcFunctions.js"></script>
     <script src="./scripts/deckFunctions.js"></script>
     <script src="./scripts/gameFunctions.js"></script>
