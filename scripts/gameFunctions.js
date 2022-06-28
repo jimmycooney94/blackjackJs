@@ -1,4 +1,9 @@
-const startGame = function () {
+const newGame = function () {
+    init();
+    betModal();
+}
+
+const init = function () {
     // Init DOM
     $intro.remove();
     $stats.style.display = "flex";
@@ -8,6 +13,7 @@ const startGame = function () {
     $stick.style.display = "block";
     $hit.disabled = false;
     $stick.disabled = false;
+    $play.disabled = true;
     $play.innerHTML = "Start again";
     $playerScoreFull.style.display = "block";
     $dealerScoreFull.style.display = "block";
@@ -24,14 +30,54 @@ const startGame = function () {
     deck = shuffle(newDeck());
     playerHand = [];
     dealerHand = [];
-    // Prompt user for bet and then place it
-    while (betPlaced === false) {
-        stake = prompt(betMsg);
-        if (betIsValid(stake) === true) {
-            betPlaced = true;
-        }
+    betPlaced = false;
+}
+
+const betModal = function () {
+    // Init betMsg
+    betMsg = "How much do you want to bet?";
+    betMsg += "<br><br>";
+    betMsg += "You currently have " + playerChips + " chips.";
+    $betMsg.innerHTML = betMsg;
+    // Open the betting modal with bet button disabled
+    $betModal.style.display = "flex";
+}
+
+const tryPlaceBet = function (stake) {
+    if (Number.isInteger(parseInt(stake)) === false) {
+        betMsg = "Please enter a number!";
+        betMsg += "<br><br>";
+        betMsg += "You currently have " + playerChips + " chips.";
+        $betMsg.innerHTML = betMsg;
     }
-    placeBet(stake);
+    else if (stake < 0) {
+        betMsg = "You can't place a negative bet!";
+        betMsg += "<br><br>";
+        betMsg += "You currently have " + playerChips + " chips.";
+        $betMsg.innerHTML = betMsg;
+    }
+    else if (stake > playerChips) {
+        betMsg = "You can't stake more chips than you have!";
+        betMsg += "<br><br>";
+        betMsg += "You currently have " + playerChips + " chips.";
+        $betMsg.innerHTML = betMsg;
+    }
+    else {
+        placeBet(stake);
+        startGame();
+    }
+}
+
+const placeBet = function (stake) {
+    $betModal.style.display = "none";
+    pot = stake;
+    $pot.innerHTML = pot;
+    playerChips -= stake;
+    $playerChips.innerHTML = playerChips;
+}
+
+const startGame = function () {
+    $play.disable = true;
     // Deal first cards
     hit("player");
     hit("player");
@@ -40,32 +86,6 @@ const startGame = function () {
     if (playerScore === 21) {
         hit("dealer");
     }
-}
-
-const betIsValid = function (stake) {
-    if (Number.isInteger(parseInt(stake)) === false) {
-        betMsg = "Please enter a number! You can bet up to " + playerChips;
-        return false;
-    }
-    else if (stake < 0) {
-        betMsg = "You can't place a negative bet! You can bet up to " + playerChips;
-        return false;
-    }
-    else if (stake > playerChips) {
-        betMsg = "You can't stake more chips than you have! You can bet up to " + playerChips;
-        return false;
-    }
-    else {
-        return true;
-    }
-}
-
-const placeBet = function (stake) {
-    // if (stake <= playerChips) {
-    pot = stake;
-    $pot.innerHTML = pot;
-    playerChips -= stake;
-    $playerChips.innerHTML = playerChips;
 }
 
 const hit = function (hitter) {

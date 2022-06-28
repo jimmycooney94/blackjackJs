@@ -34,6 +34,7 @@ const endGame = function () {
     }
     $hit.disabled = true;
     $stick.disabled = true;
+    $play.disabled = false;
 }
 
 const processResult = function (result) {
