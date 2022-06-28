@@ -2,6 +2,8 @@ const startGame = function () {
     // Init DOM
     $intro.remove();
     $stats.style.display = "flex";
+    $betting.style.display = "flex";
+    $playerChips.innerHTML = playerChips;
     $hit.style.display = "block";
     $stick.style.display = "block";
     $hit.disabled = false;
@@ -14,10 +16,22 @@ const startGame = function () {
     $playerHand.replaceChildren();
     $dealerHand.replaceChildren();
     $outcome.innerHTML = "";
+    betMsg = "Please place your bet. You can bet up to " + playerChips;
     // Init variables
+    stake = 0;
+    pot = 0;
+    isOngoing = true;
     deck = shuffle(newDeck());
     playerHand = [];
     dealerHand = [];
+    // Prompt user for bet and then place it
+    while (betPlaced === false) {
+        stake = prompt(betMsg);
+        if (betIsValid(stake) === true) {
+            betPlaced = true;
+        }
+    }
+    placeBet(stake);
     // Deal first cards
     hit("player");
     hit("player");
@@ -28,11 +42,38 @@ const startGame = function () {
     }
 }
 
+const betIsValid = function (stake) {
+    if (Number.isInteger(parseInt(stake)) === false) {
+        betMsg = "Please enter a number! You can bet up to " + playerChips;
+        return false;
+    }
+    else if (stake < 0) {
+        betMsg = "You can't place a negative bet! You can bet up to " + playerChips;
+        return false;
+    }
+    else if (stake > playerChips) {
+        betMsg = "You can't stake more chips than you have! You can bet up to " + playerChips;
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+const placeBet = function (stake) {
+    // if (stake <= playerChips) {
+    pot = stake;
+    $pot.innerHTML = pot;
+    playerChips -= stake;
+    $playerChips.innerHTML = playerChips;
+}
+
 const hit = function (hitter) {
     // Get new card
     let newCard = deck.pop();
     let newCardImg = document.createElement('img');
     newCardImg.src = "/images/cards/" + newCard.imgName;
+    newCardImg.classList.add("card");
     // Update hand
     if (hitter === "player") {
         playerHand.push(newCard);

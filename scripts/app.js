@@ -11,10 +11,12 @@ const $playerScoreFull = document.querySelector("#player-score-full");
 const $dealerScoreFull = document.querySelector("#dealer-score-full");
 const $intro = document.querySelector(".intro");
 const $stats = document.querySelector("#stats");
+const $betting = document.querySelector("#betting");
 const $countWins = document.querySelector("#count-wins");
 const $countDraws = document.querySelector("#count-draws");
 const $countLosses = document.querySelector("#count-losses");
-
+const $playerChips = document.querySelector("#player-chips");
+const $pot = document.querySelector("#pot");
 
 // add eventListeners
 $play.addEventListener('click', startGame);
@@ -38,6 +40,13 @@ let dealerScore;
 let countWins = 0;
 let countDraws = 0;
 let countLosses = 0;
+
+// Init betting variables
+let playerChips = 500;
+let stake = 0;
+let pot = 0;
+let betPlaced = false;
+let betMsg = "";
 
 // Preload Deck Images
 let cardArr = newDeck();

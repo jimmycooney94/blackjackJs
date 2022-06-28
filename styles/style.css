@@ -7,7 +7,6 @@ html, body {
 }
 
 body {
-
     display: table-cell;
     vertical-align: middle;
 }    
@@ -15,6 +14,10 @@ body {
 html {
     display: table;
     margin: auto;
+}
+
+img, button {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
 .intro {
@@ -26,7 +29,7 @@ html {
 .score {
     font-size: 1.5em;
     text-align: center;
-    margin: 20px;
+    margin: 10px;
 }
 
 button {
@@ -52,24 +55,25 @@ button:disabled {
 }
 
 .cards {
-    height: 200px;
     display: flex;
     justify-content: center;
+    height:190px;
 }
 
 .card {
+    margin: 5px;
     height:175px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     transition: height 0.5s;
 }
 
-img {
-    padding: 5px;
+.card:hover { 
+    height:180px;
+    transition: height 0.2s;
 }
 
-.card:hover {
-    height:200px;
-    transition: height 0.2s;
+#player-hand > .card {
+    align-self: flex-end;
 }
 
 .gameplay-buttons, #outcome {
@@ -86,9 +90,10 @@ img {
     display: none;
 }
 
-#stats {
+#stats, #betting {
     display: flex;
     justify-content: center;
     flex-wrap:wrap;
     display: none;
 }
+

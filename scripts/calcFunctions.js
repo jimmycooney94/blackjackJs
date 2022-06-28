@@ -14,7 +14,6 @@ const calcHand = function (cards) {
     return sum;
 }
 
-
 const endGame = function () {
     if (playerScore > 21) {
         processResult("lose");
@@ -38,19 +37,27 @@ const endGame = function () {
 }
 
 const processResult = function (result) {
+    isOngoing = false;
     if (result === "win") {
         $outcome.innerHTML = "You win!";
         countWins++;
         $countWins.innerHTML = countWins;
+        playerChips = playerChips + pot * 2;
     }
     else if (result === "draw") {
         $outcome.innerHTML = "You drew!";
         countDraws++;
         $countDraws.innerHTML = countDraws;
+        playerChips = playerChips + pot;
     }
     else if (result === "lose") {
         $outcome.innerHTML = "You lost! :(";
         countLosses++;
         $countLosses.innerHTML = countLosses;
     }
+    $playerChips.innerHTML = playerChips;
+    pot = 0;
+    $pot.innerHTML = pot;
+    betPlaced = false;
+    stake = 0;
 }
