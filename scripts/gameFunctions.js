@@ -18,6 +18,8 @@ const startGame = function () {
     $outcome.innerHTML = "";
     betMsg = "Please place your bet. You can bet up to " + playerChips;
     // Init variables
+    stake = 0;
+    pot = 0;
     isOngoing = true;
     deck = shuffle(newDeck());
     playerHand = [];
