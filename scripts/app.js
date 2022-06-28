@@ -35,7 +35,6 @@ let playerHand = [];
 let dealerHand = [];
 let playerScore;
 let dealerScore;
-let isOngoing = false;
 
 // Init scoring variables
 let countWins = 0;
