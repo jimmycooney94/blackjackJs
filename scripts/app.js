@@ -17,10 +17,11 @@ const $countDraws = document.querySelector("#count-draws");
 const $countLosses = document.querySelector("#count-losses");
 const $playerChips = document.querySelector("#player-chips");
 const $pot = document.querySelector("#pot");
-const $betModal = document.querySelector("#bet-modal");
-const $placeBet = document.querySelector("#place-bet");
-const $inputBetAmount = document.querySelector("#input-bet-amount");
-const $betMsg = document.querySelector("#bet-msg");
+
+// add eventListeners
+$play.addEventListener('click', startGame);
+$hit.addEventListener('click', _ => hit("player"));
+$stick.addEventListener('click', _ => endGame());
 
 // Init display
 $hit.style.display = "none";
@@ -50,14 +51,3 @@ let betMsg = "";
 // Preload Deck Images
 let cardArr = newDeck();
 preloadCards(cardArr);
-
-// add eventListeners
-$play.addEventListener('click', newGame);
-$hit.addEventListener('click', _ => hit("player"));
-$stick.addEventListener('click', _ => endGame());
-$placeBet.addEventListener('click', _ => tryPlaceBet($inputBetAmount.value));
-$inputBetAmount.addEventListener('keypress', function (event) {
-    if (event.key === "Enter") {
-        tryPlaceBet($inputBetAmount.value);
-    }
-})
