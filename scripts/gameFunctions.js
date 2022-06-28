@@ -66,11 +66,6 @@ const placeBet = function (stake) {
     $pot.innerHTML = pot;
     playerChips -= stake;
     $playerChips.innerHTML = playerChips;
-    //     console.log("Bet of  " + stake + " placed");
-    // }
-    // else {
-    //     console.log("Can't bet - not enough chips");
-    // }
 }
 
 const hit = function (hitter) {
