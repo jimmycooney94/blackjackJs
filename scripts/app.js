@@ -48,5 +48,6 @@ let pot = 0;
 let betPlaced = false;
 let betMsg = "";
 
-// Cache cards
-let preloadImages = document.createElement('img');
+// Preload Deck Images
+let cardArr = newDeck();
+preloadCards(cardArr);
