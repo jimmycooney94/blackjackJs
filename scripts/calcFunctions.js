@@ -34,7 +34,7 @@ const endGame = function () {
     }
     $hit.disabled = true;
     $stick.disabled = true;
-    $play.disabled = false;
+    setTimeout(newGame, 2000);
 }
 
 const processResult = function (result) {
