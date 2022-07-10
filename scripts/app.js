@@ -55,9 +55,12 @@ preloadCards(cardArr);
 $play.addEventListener('click', newGame);
 $hit.addEventListener('click', _ => hit("player"));
 $stick.addEventListener('click', _ => endGame());
-$placeBet.addEventListener('click', _ => tryPlaceBet($inputBetAmount.value));
+$placeBet.addEventListener('click', _ => placeBet($inputBetAmount.value));
 $inputBetAmount.addEventListener('keypress', function (event) {
-    if (event.key === "Enter") {
-        tryPlaceBet($inputBetAmount.value);
+    if (event.key === "Enter" && $placeBet.disabled == false) {
+        placeBet($inputBetAmount.value);
     }
+})
+$inputBetAmount.addEventListener('input', function (e) {
+    setBetDisabled($inputBetAmount.value);
 })
