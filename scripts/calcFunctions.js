@@ -34,25 +34,25 @@ const endGame = function () {
     }
     $hit.disabled = true;
     $stick.disabled = true;
-    $play.disabled = false;
+    setTimeout(newGame, 2000);
 }
 
 const processResult = function (result) {
     isOngoing = false;
     if (result === "win") {
-        $outcome.innerHTML = "You win!";
+        $betMsg.innerHTML = "You win!";
         countWins++;
         $countWins.innerHTML = countWins;
         playerChips = playerChips + pot * 2;
     }
     else if (result === "draw") {
-        $outcome.innerHTML = "You drew!";
+        $betMsg.innerHTML = "You drew!";
         countDraws++;
         $countDraws.innerHTML = countDraws;
         playerChips = playerChips + pot;
     }
     else if (result === "lose") {
-        $outcome.innerHTML = "You lost! :(";
+        $betMsg.innerHTML = "You lost! :(";
         countLosses++;
         $countLosses.innerHTML = countLosses;
     }

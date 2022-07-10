@@ -21,8 +21,7 @@ const init = function () {
     $dealerScore.innerHTML = 0;
     $playerHand.replaceChildren();
     $dealerHand.replaceChildren();
-    $outcome.innerHTML = "";
-    betMsg = "Please place your bet. You can bet up to " + playerChips;
+    betMsg = "";
     // Init variables
     stake = 0;
     pot = 0;
@@ -48,22 +47,19 @@ const betModal = function () {
 const setBetDisabled = function (stake) {
     if (Number.isInteger(parseInt(stake)) === false) {
         betMsg = "Please enter a number!";
-        betMsg += "<br><br>";
-        betMsg += "You currently have " + playerChips + " chips.";
+        betMsg += "<br><br>You currently have " + playerChips + " chips.";
         $betMsg.innerHTML = betMsg;
         $placeBet.disabled=true;
     }
     else if (stake < 0) {
         betMsg = "You can't place a negative bet!";
-        betMsg += "<br><br>";
-        betMsg += "You currently have " + playerChips + " chips.";
+        betMsg += "<br><br>You currently have " + playerChips + " chips.";
         $betMsg.innerHTML = betMsg;
         $placeBet.disabled=true;
     }
     else if (stake > playerChips) {
         betMsg = "You can't stake more chips than you have!";
-        betMsg += "<br><br>";
-        betMsg += "You currently have " + playerChips + " chips.";
+        betMsg += "<br><br>You currently have " + playerChips + " chips.";
         $betMsg.innerHTML = betMsg;
         $placeBet.disabled=true;
     }
